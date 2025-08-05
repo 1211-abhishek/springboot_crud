@@ -3,7 +3,7 @@ package com.example.springboot_crud.controller;
 import com.example.springboot_crud.entity.Users;
 import com.example.springboot_crud.responces.SingleUserResponse;
 import com.example.springboot_crud.services.UsersService;
-import com.example.springboot_crud.tempdto.UserDTO;
+import com.example.springboot_crud.dto.UserDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;

@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 public class Users {
 
     @Id
-    //@SequenceGenerator(name = "userIdGenerator",initialValue = 100,allocationSize = 20)
+    @SequenceGenerator(name = "userIdGenerator",initialValue = 100,allocationSize = 20)
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int userId;
 

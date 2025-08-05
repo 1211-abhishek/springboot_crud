@@ -1,4 +1,4 @@
-package com.example.springboot_crud.tempdto;
+package com.example.springboot_crud.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;

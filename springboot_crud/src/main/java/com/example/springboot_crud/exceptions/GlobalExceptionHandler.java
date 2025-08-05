@@ -45,12 +45,18 @@ public class GlobalExceptionHandler {
         ex.getBindingResult().getFieldErrors().forEach(error -> {
 
             errors.put(error.getField(), error.getDefaultMessage());
-            log.error("current error Field : {}", error.getField());
-            log.error("current error Message : {}", error.getDefaultMessage());
-            log.error("-------------------------------------------------------");
         });
         ResponseEntity<ExceptionEntityMessage> invalidBodyParameters = new ResponseEntity<>(new ExceptionEntityMessage("Invalid Body Parameters", errors, HttpStatus.BAD_REQUEST.value()), HttpStatus.BAD_REQUEST);
         log.error(invalidBodyParameters.toString());
         return invalidBodyParameters;
+    }
+
+    @ExceptionHandler(RoleNotFoundException.class)
+    public ResponseEntity<ExceptionEntityMessage> handleRoleNotFoundException(RoleNotFoundException roleNotFoundException){
+        Map<String, String> errors = new HashMap<>();
+        errors.put("Exception", roleNotFoundException.getMessage());
+        ResponseEntity<ExceptionEntityMessage> roleNotFound = new ResponseEntity<>(new ExceptionEntityMessage("User Role not found", errors, HttpStatus.NOT_FOUND.value()), HttpStatus.NOT_FOUND);
+        log.error(roleNotFound.toString());
+        return roleNotFound;
     }
 }
